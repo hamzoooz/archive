@@ -1,0 +1,6 @@
+https://archive.org/details/texts?tab=collection&and%5B%5D=subject%3A%22Islam%22&and%5B%5D=lending%3A%22is_readable%22&and%5B%5D=language%3A%22Arabic%22
+https://archive.org/advancedsearch.php?q=subject:Islam&languageArabic&output=json&rows=100&page=5
+
+
+Your S3 access key: kxTfzyeQmqek96rW
+Your S3 secret key: wB70JtnBEPuYsm8m
