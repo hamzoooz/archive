@@ -9,13 +9,28 @@
 <body>
     <h2>{{ title }}</h2>
     <ul>
-        {% for i in listbook %}
-                        
-            <li> the id : {{i.id}}  - the title : {{i.name}} <a  download="download" href="{{ i.url }}">download</a></li>
-
+        {% for i in listbook %}          
+            <li> the id : {{i.id}}  - the title : {{i.name}} <a  download="download" href="{{ i.url }}">download</a> ||  <a   href="{{ i.direct_url }}" download >downloa</a>  <a href="#" onclick="downloadFile('{{ i.direct_url }}');">Click here to download</a> </li>
         {% endfor %}
     </ul>
-    
+    <script>
+        function downloadFile(fileUrl) {
+            // Create an invisible anchor element
+            var anchor = document.createElement('a');
+            anchor.style.display = 'none';
+            // Set the anchor's href to the file URL
+            anchor.href = fileUrl;
+            // Set the download attribute (if supported)
+            if ('download' in anchor) {
+                anchor.download = fileUrl.substring(fileUrl.lastIndexOf('/') + 1);
+            }
+            // Trigger a click event on the anchor
+            document.body.appendChild(anchor);
+            anchor.click();
+            // Clean up
+            document.body.removeChild(anchor);
+        }
+    </script>
 </body>
 </html>
 

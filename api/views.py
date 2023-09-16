@@ -10,7 +10,8 @@ def index(request):
     item_ids = []
 
     # Specify the path to the text file containing item IDs
-    file_path =  'D:/hamzoooz/files/django/archive.org/api/item_ids.txt'
+    file_path =  'D:/hamzoooz/files/django/archive.org/archive/api/item_ids.txt'
+    # D:\hamzoooz\files\django\archive.org\archive\api\item_ids.txt
 # D:\hamzoooz\files\django\archive.org\api\item_ids.txt
     # Open the file and read item IDs line by line
     with open(file_path, 'r') as file:
@@ -35,7 +36,7 @@ def index(request):
                 # Check if the request was successful
                 if direct_url.status_code == 200:
                     # Get the current URL from the response object
-                    last__link = response.url
+                    last__link = direct_url.url
                 new = ListBook.objects.create(identifier = item_id ,name=item_id,url=f'https://archive.org/download/{item_id}/{item_id}.pdf' , direct_url = last__link)
                 
                 data = response.json()
